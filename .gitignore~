@@ -2,7 +2,6 @@
 motius_flow/__pycache__/
 ~.gitignore
 *.pyc
-*.log
-*.pot
-*.sqlite3
+
+
 
