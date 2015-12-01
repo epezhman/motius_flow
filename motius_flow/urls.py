@@ -18,10 +18,12 @@ from django.contrib import admin
 from main import views
 from django.contrib.auth import views as auth_views
 from user import urls as user_urls
+from question_board import urls as question_urls
 
 urlpatterns = [
     url(r'^$', views.home, name="motiusflow_home"),
     url(r'^user/', include(user_urls)),
+    url(r'^question_board/', include(question_urls)),
     url(r'^admin/', include(admin.site.urls)),
 ]
 

@@ -20,7 +20,7 @@ class Question(models.Model):
 
 
 class Answer(models.Model):
+    question = models.ForeignKey(Question)
     body = models.TextField()
     created_by = models.ForeignKey(User, verbose_name="user_answers")
     created_at = models.DateTimeField(auto_now_add=True)
-    question = models.ForeignKey(Question)
