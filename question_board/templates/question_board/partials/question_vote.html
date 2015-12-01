@@ -1,0 +1,9 @@
+{% if vote %}
+
+    <div class="btn-group" role="group" aria-label="vote">
+        <a class="btn btn-danger" href="{% url 'question_down_vote' pk=vote.question.pk %}">Down Vote</a>
+        <a class="btn btn-default disabled" href="#">{{ vote.get_vote_sum }}</a>
+        <a class="btn btn-primary" href="{% url 'question_up_vote' pk=vote.question.pk %}">Up Vote</a>
+    </div>
+
+{% endif %}

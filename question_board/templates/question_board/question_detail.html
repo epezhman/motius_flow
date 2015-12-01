@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+    <div class="col-md-12 well">
+
+        <div class="row">
+            <div class="col-xs-4">
+                {% include 'question_board/partials/question_vote.html' with vote=question.vote %}
+            </div>
+            <div class="col-xs-8">
+                <h3>{{ question.title }}</h3>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-8 col-xs-offset-4">
+                <p>{{ question.body }}</p>
+            </div>
+        </div>
+
+        {% include "question_board/partials/answer_detail.html" with answers=question.answer_set.all %}
+
+    </div>
+{% endblock content %}

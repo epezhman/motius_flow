@@ -1,8 +1,8 @@
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import redirect, render
+from django.shortcuts import redirect, render, get_object_or_404
 
 from question_board.forms import QuestionForm, AnswerForm
-from question_board.models import Question, Answer
+from question_board.models import Question, Answer, Vote
 
 
 @login_required
@@ -31,3 +31,30 @@ def new_answer(request):
         form = AnswerForm()
 
     return render(request, 'question_board/new_question_answer.html', {'form': form})
+
+
+@login_required
+def question_detail(request, pk):
+    question = get_object_or_404(Question, pk=pk)
+    if not hasattr(question, 'vote'):
+        vote = Vote(question=question, up_vote=0, down_vote=0)
+        vote.save()
+    return render(request, 'question_board/question_detail.html', {'question': question})
+
+
+@login_required
+def question_up_vote(request, pk):
+    question = get_object_or_404(Question, pk=pk)
+    vote = question.vote
+    vote.up_vote += 1
+    vote.save()
+    return redirect('question_detail', pk=pk)
+
+
+@login_required
+def question_down_vote(request, pk):
+    question = get_object_or_404(Question, pk=pk)
+    vote = question.vote
+    vote.down_vote += 1
+    vote.save()
+    return redirect('question_detail', pk=pk)

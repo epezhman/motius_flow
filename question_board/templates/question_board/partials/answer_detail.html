@@ -1,0 +1,17 @@
+{% for answer in answers %}
+    <div class="row">
+        <div class="col-xs-8 col-xs-offset-4">
+
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    Answer {{ forloop.counter0 }}. {{ answer.body }}
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+{% empty %}
+    <span> No Answers</span>
+{% endfor %}

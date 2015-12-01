@@ -1,11 +1,11 @@
-
 <div class="list-group">
     {% for question in questions %}
-        <a class="list-group-item" href="#}">
+        <a class="list-group-item" href="{% url 'question_detail' pk=question.pk %}">
             {{ question }} by {{ question.created_by.username }}
 
             <span class="badge">{{ question.answer_set.count }}</span>
         </a>
+
     {% empty %}
         <span> No Questions</span>
     {% endfor %}
