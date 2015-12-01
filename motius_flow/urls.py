@@ -16,8 +16,19 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 from main import views
+from django.contrib.auth import views as auth_views
+from user import urls as user_urls
 
 urlpatterns = [
-    url(r'^$', views.home),
+    url(r'^$', views.home, name="motiusflow_home"),
+    url(r'^user/', include(user_urls)),
     url(r'^admin/', include(admin.site.urls)),
+]
+
+
+urlpatterns += [
+    url(r'^login/$', auth_views.login,
+        {'template_name': 'login.html'}, name="motiusflow_login"),
+    url(r'^logout/$', auth_views.logout,
+        {'next_page': 'motiusflow_home'}, name="motiusflow_logout"),
 ]

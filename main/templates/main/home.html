@@ -1,64 +1,15 @@
-{% load staticfiles %}
+{% extends 'base.html' %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+{% block title %}Home Page{% endblock title %}
 
-    <title>MotiusFlow</title>
+{% block content %}
 
-    <!-- Bootstrap core CSS -->
-    <link href="{% static 'bootstrap-3.3.5-dist/css/bootstrap.min.css' %}" rel="stylesheet">
-    <link href="{% static 'css/custom.css' %}" rel="stylesheet">
+    <!-- Main component for a primary marketing message or call to action -->
+    <div class="jumbotron">
+        <h1>MotiusFlow</h1>
 
-</head>
+        <p>Your place to ask technical questions.</p>
 
-<body>
-
-<!-- Fixed navbar -->
-<nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
-                    aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#">MotiusFlow</a>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-                <li><a href="#">Home</a></li>
-                <li><a href="#about">About</a></li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="#">Login</a></li>
-                <li><a href="#about">Signup</a></li>
-            </ul>
-        </div><!--/.nav-collapse -->
+        <p>you can Ask anything!</p>
     </div>
-</nav>
-
-<div class="container">
-    <div class="content">
-        <!-- Main component for a primary marketing message or call to action -->
-        <div class="jumbotron">
-            <h1>MotiusFlow</h1>
-
-            <p>Your place to ask technical questions.</p>
-
-            <p>you can Ask anything!</p>
-        </div>
-    </div>
-
-</div> <!-- /container -->
-
-<script src="{% static 'jquery-1.11.3.min.js' %}"></script>
-</body>
-</html>
+{% endblock %}

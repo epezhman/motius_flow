@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<form role="form" class="form-horizontal" method="post" action="{% url 'motiusflow_login' %}">
+
+    {% csrf_token %}
+    {{ form }}
+
+    <input class="btn btn-primary" type="submit" value="Login">
+    <input type="hidden" name="next" value="{{ next }}">
+</form>
+</body>
+</html>
